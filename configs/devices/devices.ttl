@@ -1,0 +1,27 @@
+@prefix custom:          <http://example.org/> .
+@prefix dcterms:         <http://purl.org/dc/terms/> .
+@prefix sh:              <http://www.w3.org/ns/shacl#> .
+@prefix server:          <http://localhost:8080/> .
+@prefix xsd:             <http://www.w3.org/2001/XMLSchema#> .
+@prefix devices:         <http://localhost:8080/devices/> .
+@prefix default-context: <https://uri.etsi.org/ngsi-ld/default-context/> .
+@prefix ldes:            <https://w3id.org/ldes#> .
+@prefix ngsi-ld:         <https://uri.etsi.org/ngsi-ld/> .
+@prefix prov:            <http://www.w3.org/ns/prov#> .
+@prefix rdf:             <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix tree:            <https://w3id.org/tree#> .
+@prefix vocab:           <https://purl.org/geojson/vocab#> .
+@base <http://localhost:8080> .
+
+server:devices
+    a                  ldes:EventStream ;
+    ldes:timestampPath prov:generatedAtTime ;
+    ldes:versionOfPath dcterms:isVersionOf ;
+    custom:memberType  default-context:Device ;
+    tree:shape         devices:shape .
+
+devices:shape
+    a              sh:NodeShape ;
+    sh:nodeShape   [ sh:closed        true ;
+                     sh:propertyShape [ ] ] ;
+    sh:deactivated true .

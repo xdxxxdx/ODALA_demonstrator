@@ -1,0 +1,14 @@
+orchestrator:
+    pipelines:
+        - name: gipod-replicator
+          description: "HTTP polling, OSLO transformation, version creation & HTTP sending."
+          input:
+            name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient
+            config:
+              url: https://apim-iow-apimanagement.azure-api.net/ldes/water-quality-observations/water-quality-observations-by-time
+              source-format: "text/turtle"
+          outputs:
+            - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpOut
+              config:
+                endpoint: http://host.docker.internal:8080/water-quality-observations
+                content-type: application/n-quads
