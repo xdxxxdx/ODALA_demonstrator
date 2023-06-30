@@ -7,15 +7,14 @@
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix server: <http://localhost:8080/devices/> .
 @prefix legal: <http://www.w3.org/ns/legal#> .
-@prefix prov:  <http://www.w3.org/ns/prov#> .
 @base <http://localhost:8080> .
 
-
-</devices/by-time> a tree:Node ;
+</devices/by-location> a tree:Node ;
   tree:viewDescription [ a tree:ViewDescription ;
     tree:fragmentationStrategy ([
-		a tree:TimebasedFragmentation ;
-		tree:memberLimit "100"^^xsd:integer ;
-		tree:fragmentationPath prov:generatedAtTime ;
+		a tree:GeospatialFragmentation ;
+		tree:maxZoom "15"^^xsd:integer ;
+		tree:fragmentationPath <http://www.opengis.net/ont/geosparql#asWKT> ;
+		tree:memberLimit "2"^^xsd:integer ;
 	]) ;
 ] .

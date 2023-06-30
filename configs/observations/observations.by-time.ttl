@@ -7,6 +7,7 @@
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix server: <http://localhost:8080/water-quality-observations/> .
 @prefix legal: <http://www.w3.org/ns/legal#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
 @base <http://localhost:8080> .
 
 </water-quality-observations/by-time> a tree:Node ;
@@ -14,6 +15,6 @@
     tree:fragmentationStrategy ([
 		a tree:TimebasedFragmentation ;
 		tree:memberLimit "100"^^xsd:integer ;
-		tree:fragmentationPath dcterms:created ;  ;
+		tree:fragmentationPath prov:generatedAtTime ;
 	]) ;
 ] .

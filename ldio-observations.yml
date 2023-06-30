@@ -1,7 +1,7 @@
 orchestrator:
     pipelines:
         - name: gipod-replicator
-          description: "HTTP polling, OSLO transformation, version creation & HTTP sending."
+          description: "HTTP polling, HTTP sending."
           input:
             name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient
             config:

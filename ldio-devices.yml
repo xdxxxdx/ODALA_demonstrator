@@ -1,12 +1,14 @@
 orchestrator:
     pipelines:
         - name: gipod-replicator
-          description: "HTTP polling, OSLO transformation, version creation & HTTP sending."
+          description: "HTTP polling,Geojson to wkt, HTTP sending."
           input:
             name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient
             config:
               url: https://apim-iow-apimanagement.azure-api.net/ldes/devices/devices-by-time?pageNumber=1
               source-format: "text/turtle"
+          transformers:
+             - name: be.vlaanderen.informatievlaanderen.ldes.ldi.GeoJsonToWktTransformer
           outputs:
             - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpOut
               config:
