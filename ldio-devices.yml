@@ -1,16 +1,18 @@
 orchestrator:
-    pipelines:
-        - name: gipod-replicator
-          description: "HTTP polling,Geojson to wkt, HTTP sending."
-          input:
-            name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient
-            config:
-              url: https://apim-iow-apimanagement.azure-api.net/ldes/devices/devices-by-time?pageNumber=1
-              source-format: "text/turtle"
-          transformers:
-             - name: be.vlaanderen.informatievlaanderen.ldes.ldi.GeoJsonToWktTransformer
-          outputs:
-            - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpOut
-              config:
-                endpoint: http://host.docker.internal:8080/devices
-                content-type: application/n-quads
+  pipelines:
+    - name: gipod-replicator
+      description: "HTTP polling,Geojson to wkt, HTTP sending."
+      input:
+        name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient
+        config:
+          url: https://apim-iow-apimanagement.azure-api.net/ldes/devices/devices-by-time?pageNumber=1
+          source-format: "text/turtle"
+      transformers:
+        - name: be.vlaanderen.informatievlaanderen.ldes.ldi.SparqlConstructTransformer
+          config:
+            query: "devices.rq"
+      outputs:
+        - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpOut
+          config:
+            endpoint: http://host.docker.internal:8080/devices
+            content-type: application/n-quads

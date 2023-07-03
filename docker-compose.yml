@@ -28,6 +28,7 @@ services:
         - SPRING_CONFIG_LOCATION=/config/
         volumes:
         - ./ldio-devices.yml:/config/application.yml:ro
+        - ./devices.rq:/ldio/devices.rq:ro
         ports:
         - ${LDIO_WORKBENCH_PORT:-8081}:8080
         networks:

@@ -1,0 +1,32 @@
+PREFIX rdf:             <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sosa:            <http://www.w3.org/ns/sosa/>
+PREFIX rdfs:            <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xs:              <http://www.w3.org/2001/XMLSchema#>
+PREFIX default-context: <https://uri.etsi.org/ngsi-ld/default-context/>
+PREFIX ldes:            <https://w3id.org/ldes#>
+PREFIX ngsi-ld:         <https://uri.etsi.org/ngsi-ld/>
+PREFIX prov:            <http://www.w3.org/ns/prov#>
+PREFIX rdf:             <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX terms:           <http://purl.org/dc/terms/>
+PREFIX tree:            <https://w3id.org/tree#>
+PREFIX vocab:           <https://purl.org/geojson/vocab#>
+PREFIX geo:             <http://www.opengis.net/ont/geosparql#>
+CONSTRUCT {
+    ?devices rdf:type default-context:Device.
+    ?devices terms:isVersionOf ?devicesversion.
+    ?devices prov:generatedAtTime ?generattime.
+    ?devices geo:asWKT ?wktl
+} WHERE {
+    ?devices rdf:type default-context:Device.
+    ?devices terms:isVersionOf ?devicesversion.
+    ?devices prov:generatedAtTime ?generattime.
+    ?devices ngsi-ld:location ?location .
+    ?location ngsi-ld:hasValue ?value.
+    ?value rdf:type ?type.
+    ?value vocab:coordinates (?x ?y).
+
+    BIND(SUBSTR(STR(?x), 1, 10) AS ?lon)
+    BIND(SUBSTR(STR(?y), 1, 11) AS ?lat)
+    BIND(CONCAT("POINT(", STR(?lon), " ", STR(?lat), ")") AS ?wkt)
+    BIND(STRDT(?wkt, geo:wktLiteral) AS ?wktl)
+}

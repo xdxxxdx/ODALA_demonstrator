@@ -1,0 +1,88 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix default-context: <https://uri.etsi.org/ngsi-ld/default-context/> .
+@prefix ldes:            <https://w3id.org/ldes#> .
+@prefix ngsi-ld:         <https://uri.etsi.org/ngsi-ld/> .
+@prefix prov:            <http://www.w3.org/ns/prov#> .
+@prefix rdf:             <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix terms:           <http://purl.org/dc/terms/> .
+@prefix tree:            <https://w3id.org/tree#> .
+@prefix vocab:           <https://purl.org/geojson/vocab#> .
+
+
+<urn:ngsi-v2:cot-imec-be:Device:imec-iow-YTKNQURUXU7qApvE3UXEVC/2023-06-22T11:13:43.265Z>
+        rdf:type                        default-context:Device ;
+        terms:isVersionOf               <urn:ngsi-v2:cot-imec-be:Device:imec-iow-YTKNQURUXU7qApvE3UXEVC> ;
+        prov:generatedAtTime            "2023-06-22T11:13:43.265Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        default-context:adminState      [ rdf:type          ngsi-ld:Property ;
+                                          ngsi-ld:hasValue  "down"
+                                        ] ;
+        default-context:alternativeIds  [ rdf:type          ngsi-ld:Property ;
+                                          ngsi-ld:hasValue  "simcard.206012902547523" , "octa_dec.2326733070145900556"
+                                        ] ;
+        default-context:batteryLevel    [ rdf:type                  ngsi-ld:Property ;
+                                          default-context:rawValue  [ rdf:type          ngsi-ld:Property ;
+                                                                      ngsi-ld:hasValue  "3359"
+                                                                    ] ;
+                                          default-context:rawValueUnitCode
+                                                  [ rdf:type          ngsi-ld:Property ;
+                                                    ngsi-ld:hasValue  "2Z"
+                                                  ] ;
+                                          ngsi-ld:hasValue          5.98333333E-1
+                                        ] ;
+        default-context:calibrationParameters
+                [ rdf:type          ngsi-ld:Property ;
+                  ngsi-ld:hasValue  [ default-context:battery  [ default-context:gain    600 ;
+                                                                 default-context:offset  3000
+                                                               ]
+                                    ]
+                ] ;
+        default-context:copyObservationAttributes
+                [ rdf:type          ngsi-ld:Property ;
+                  ngsi-ld:hasValue  "batteryLevel"
+                ] ;
+        default-context:dateLastValueReported
+                [ rdf:type          ngsi-ld:Property ;
+                  ngsi-ld:hasValue  "2023-06-22T11:13:13.000Z"^^ngsi-ld:DateTime
+                ] ;
+        default-context:extraMeasurementAttributes
+                [ rdf:type          ngsi-ld:Property ;
+                  ngsi-ld:hasValue  [ default-context:locationName   true ;
+                                      default-context:samplingPoint  true ;
+                                      ngsi-ld:location               true
+                                    ]
+                ] ;
+        default-context:healthState     [ rdf:type          ngsi-ld:Property ;
+                                          ngsi-ld:hasValue  "up"
+                                        ] ;
+        default-context:locationName    [ rdf:type          ngsi-ld:Property ;
+                                          ngsi-ld:hasValue  "loc-00000-90"
+                                        ] ;
+        default-context:maxTimeBetweenObservations
+                [ rdf:type          ngsi-ld:Property ;
+                  ngsi-ld:hasValue  60
+                ] ;
+        default-context:name            [ rdf:type          ngsi-ld:Property ;
+                                          ngsi-ld:hasValue  "box-00232-79"
+                                        ] ;
+        default-context:owner           [ rdf:type          ngsi-ld:Property ;
+                                          ngsi-ld:hasValue  "imec"
+                                        ] ;
+        default-context:refDeviceModel  [ rdf:type           ngsi-ld:Relationship ;
+                                          ngsi-ld:hasObject  <urn:ngsi-v2:cot-imec-be:devicemodel:imec-iow-box-v0003>
+                                        ] ;
+        default-context:samplingPoint   [ rdf:type          ngsi-ld:Property ;
+                                          ngsi-ld:hasValue  "spt-00000-87"
+                                        ] ;
+        default-context:source          [ rdf:type          ngsi-ld:Property ;
+                                          ngsi-ld:hasValue  "cot.iow.observed"
+                                        ] ;
+        ngsi-ld:location                [ rdf:type              ngsi-ld:GeoProperty ;
+                                          default-context:name  [ rdf:type          ngsi-ld:Property ;
+                                                                  ngsi-ld:hasValue  "loc-00000-90"
+                                                                ] ;
+                                          ngsi-ld:hasValue      [ rdf:type           vocab:Point ;
+                                                                  vocab:coordinates  ( 5.456441784E0 5.1413649952E1 )
+                                                                ]
+                                        ] .
