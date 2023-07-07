@@ -25,8 +25,8 @@ CONSTRUCT {
     ?value rdf:type ?type.
     ?value vocab:coordinates (?x ?y).
 
-    BIND(SUBSTR(STR(?x), 1, 13) AS ?lon)
-    BIND(SUBSTR(STR(?y), 1, 13) AS ?lat)
+    BIND(SUBSTR(STR(?x), 1, 15) AS ?lon)
+    BIND(SUBSTR(STR(?y), 1, 15) AS ?lat)
     BIND(CONCAT("POINT(", STR(?lon), " ", STR(?lat), ")") AS ?wkt)
     BIND(STRDT(?wkt, geo:wktLiteral) AS ?wktl)
 }
