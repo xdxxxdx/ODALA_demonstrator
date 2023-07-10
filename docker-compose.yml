@@ -49,6 +49,21 @@ services:
         - ldes 
         profiles:
         - delay-started
+    ldio-workbench-rmladapter:
+        container_name: rmladapter_ldes-replication
+        image: ldes/ldi-orchestrator:1.2.0-SNAPSHOT
+        environment:
+        - SPRING_CONFIG_NAME=application
+        - SPRING_CONFIG_LOCATION=/config/
+        volumes:
+        - ./ldio-rmladapter.yml:/config/application.yml:ro
+        - ./mapping.ttl:/ldio/mapping.ttl
+        ports:
+        - ${LDIO_WORKBENCH_PORT:-8083}:8080
+        networks:
+        - ldes 
+        profiles:
+        - delay-started
 networks:
     ldes:
         name: quick_start_network
