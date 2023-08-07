@@ -3,7 +3,6 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix tree: <https://w3id.org/tree#>.
 @prefix sh:   <http://www.w3.org/ns/shacl#> .
-@prefix server: <http://localhost:8080/> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix server: <http://localhost:8080/water-quality-observations/> .
 @prefix legal: <http://www.w3.org/ns/legal#> .
@@ -13,8 +12,9 @@
 </water-quality-observations/by-time> a tree:Node ;
   tree:viewDescription [ a tree:ViewDescription ;
     tree:fragmentationStrategy ([
-		a tree:TimebasedFragmentation ;
+		a tree:HierarchicalTimeBasedFragmentation ;
 		tree:memberLimit "100"^^xsd:integer ;
+		tree:maxGranularity "second";
 		tree:fragmentationPath prov:generatedAtTime ;
 	]) ;
 ] .

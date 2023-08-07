@@ -14,11 +14,9 @@ server:water-quality-observations
     a                  ldes:EventStream ;
     ldes:timestampPath prov:generatedAtTime ;
     ldes:versionOfPath dcterms:isVersionOf ;
-    custom:memberType  sosa:ObservationCollection ;
     tree:shape         observations:shape .
 
 observations:shape
     a              sh:NodeShape ;
-    sh:nodeShape   [ sh:closed        true ;
-                     sh:propertyShape [ ] ] ;
+    sh:targetClass sosa:ObservationCollection ;
     sh:deactivated true .

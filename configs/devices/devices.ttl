@@ -17,11 +17,9 @@ server:devices
     a                  ldes:EventStream ;
     ldes:timestampPath prov:generatedAtTime ;
     ldes:versionOfPath dcterms:isVersionOf ;
-    custom:memberType  default-context:Device ;
     tree:shape         devices:shape .
 
 devices:shape
     a              sh:NodeShape ;
-    sh:nodeShape   [ sh:closed        true ;
-                     sh:propertyShape [ ] ] ;
+    sh:targetClass default-context:Device ;
     sh:deactivated true .

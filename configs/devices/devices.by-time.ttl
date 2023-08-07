@@ -14,8 +14,9 @@
 </devices/by-time> a tree:Node ;
   tree:viewDescription [ a tree:ViewDescription ;
     tree:fragmentationStrategy ([
-		a tree:TimebasedFragmentation ;
+		a tree:HierarchicalTimeBasedFragmentation ;
 		tree:memberLimit "100"^^xsd:integer ;
+		tree:maxGranularity "day" ;
 		tree:fragmentationPath prov:generatedAtTime ;
 	]) ;
 ] .

@@ -58,6 +58,7 @@ echo "Press Enter to start client for devices."
 read
 docker compose up ldio-workbench-devices -d
 
+
 echo "Press Enter to End"
 read
 docker rm -f $(docker ps -a -q)
