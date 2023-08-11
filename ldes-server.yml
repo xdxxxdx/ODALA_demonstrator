@@ -14,3 +14,4 @@ spring:
         database: odala
         host: ldes-mongodb
         port: 27017
+        auto-index-creation: true
