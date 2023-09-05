@@ -2,7 +2,7 @@ version: '3.3'
 services:
     ldes-server:
         container_name: basic_ldes-server
-        image: ldes/ldes-server:1.4.0-SNAPSHOT
+        image: ldes/ldes-server:2.0.1-SNAPSHOT
         environment:
         - SPRING_CONFIG_LOCATION=/config/
         volumes:
@@ -22,7 +22,7 @@ services:
         - ldes
     ldio-workbench-devices:
         container_name: devices_ldes-replication
-        image: ldes/ldi-orchestrator:1.3.0-SNAPSHOT
+        image: ldes/ldi-orchestrator:1.5.0-SNAPSHOT
         environment:
         - SPRING_CONFIG_NAME=application
         - SPRING_CONFIG_LOCATION=/config/
@@ -37,7 +37,7 @@ services:
         - delay-started
     ldio-workbench-observations:
         container_name: observations_ldes-replication
-        image: ldes/ldi-orchestrator:1.3.0-SNAPSHOT
+        image: ldes/ldi-orchestrator:1.5.0-SNAPSHOT
         environment:
         - SPRING_CONFIG_NAME=application
         - SPRING_CONFIG_LOCATION=/config/
@@ -51,7 +51,7 @@ services:
         - delay-started
     ldio-workbench-rmladapter:
         container_name: rmladapter_ldes-replication
-        image: ldes/ldi-orchestrator:1.3.0-SNAPSHOT
+        image: ldes/ldi-orchestrator:1.5.0-SNAPSHOT
         environment:
         - SPRING_CONFIG_NAME=application
         - SPRING_CONFIG_LOCATION=/config/

@@ -19,4 +19,9 @@
 		tree:maxGranularity "day" ;
 		tree:fragmentationPath prov:generatedAtTime ;
 	]) ;
-] .
+	 tree:pageSize "100"^^<http://www.w3.org/2001/XMLSchema#int> ;
+         ldes:retentionPolicy [
+             a ldes:LatestVersionSubset;
+             ldes:amount 1 ;
+         ] ;
+    ] .
