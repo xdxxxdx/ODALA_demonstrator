@@ -3,6 +3,7 @@ PREFIX sosa:            <http://www.w3.org/ns/sosa/>
 PREFIX rdfs:            <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xs:              <http://www.w3.org/2001/XMLSchema#>
 PREFIX default-context: <https://uri.etsi.org/ngsi-ld/default-context/>
+PREFIX ex:              <https://example.org/>
 PREFIX ldes:            <https://w3id.org/ldes#>
 PREFIX ngsi-ld:         <https://uri.etsi.org/ngsi-ld/>
 PREFIX prov:            <http://www.w3.org/ns/prov#>
@@ -11,11 +12,13 @@ PREFIX terms:           <http://purl.org/dc/terms/>
 PREFIX tree:            <https://w3id.org/tree#>
 PREFIX vocab:           <https://purl.org/geojson/vocab#>
 PREFIX geo:             <http://www.opengis.net/ont/geosparql#>
+PREFIX geoc:            <https://opengis.net/def/function/geosparql/custom#>
 CONSTRUCT {
     ?devices rdf:type default-context:Device.
     ?devices terms:isVersionOf ?devicesversion.
     ?devices prov:generatedAtTime ?generattime.
-    ?devices geo:asWKT ?wktl
+    ?devices geo:asWKT ?wktl.
+    ?devices ex:test  ?test
 } WHERE {
     ?devices rdf:type default-context:Device.
     ?devices terms:isVersionOf ?devicesversion.
@@ -29,4 +32,5 @@ CONSTRUCT {
     BIND(SUBSTR(STR(?y), 1, 15) AS ?lat)
     BIND(CONCAT("POINT(", STR(?lon), " ", STR(?lat), ")") AS ?wkt)
     BIND(STRDT(?wkt, geo:wktLiteral) AS ?wktl)
+    BIND (geoc:lastCoordinate(?wkt) as ?test)
 }

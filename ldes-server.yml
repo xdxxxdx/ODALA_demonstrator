@@ -5,6 +5,10 @@ springdoc:
         path: /v1/swagger
 ldes-server:
     host-name: "http://localhost:8080"
+    retention-cron: "*/20 * * * * *"
+    ldes-server.deletion-cron: "*/20 * * * * *"
+    ldes-server.compaction-duration: "PT20M"
+    ldes-server.compaction-cron: "*/20 * * * * *"
 management:
     tracing:
         enabled: false
