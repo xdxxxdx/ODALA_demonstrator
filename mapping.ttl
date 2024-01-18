@@ -9,6 +9,7 @@
 @prefix ex: <http://example.com/> .
 @prefix cs: <http://www.cheapshark.com/> .
 @prefix ldi: <http://www.vlaanderen.be/ns/ldi#> .
+@prefix aa: <https://originassets.akamaized.net/origin-com-store-final-assets-prod/196787/>.
 
 map:fn_000 rml:logicalSource map:source_000 ;
 	rr:predicateObjectMap map:pom_005, map:pomexec_000 .

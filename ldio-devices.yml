@@ -5,7 +5,7 @@ orchestrator:
       input:
         name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient
         config:
-          url: https://apim-iow-apimanagement.azure-api.net/ldes/devices/devices-by-time?pageNumber=1
+          url: https://ldes.vsds.odt.imec-apt.be/devices/by-page?pageNumber=1
           source-format: "text/turtle"
       transformers:
         - name: be.vlaanderen.informatievlaanderen.ldes.ldi.SparqlConstructTransformer

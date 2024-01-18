@@ -4,7 +4,7 @@ orchestrator:
       input:
         name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpInPoller
         config:
-          url: https://www.cheapshark.com/api/1.0/deals?pageSize=1000
+          url: https://www.cheapshark.com/api/1.0/deals?pageSize=1
           interval: PT30M
         adapter:
           name: be.vlaanderen.informatievlaanderen.ldes.ldi.RmlAdapter
