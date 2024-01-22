@@ -22,7 +22,7 @@ services:
         - ldes
     ldio-workbench-devices:
         container_name: devices_ldes-replication
-        image: ldes/ldi-orchestrator:1.12.0-SNAPSHOT
+        image: ldes/ldi-orchestrator:1.13.0-SNAPSHOT
         environment:
         - SPRING_CONFIG_NAME=application
         - SPRING_CONFIG_LOCATION=/config/
@@ -37,7 +37,7 @@ services:
         - delay-started
     ldio-workbench-observations:
         container_name: observations_ldes-replication
-        image: ldes/ldi-orchestrator:1.12.0-SNAPSHOT
+        image: ldes/ldi-orchestrator:1.13.0-SNAPSHOT
         environment:
         - SPRING_CONFIG_NAME=application
         - SPRING_CONFIG_LOCATION=/config/
@@ -51,7 +51,7 @@ services:
         - delay-started
     ldio-workbench-rmladapter:
         container_name: rmladapter_ldes-replication
-        image: ldes/ldi-orchestrator:1.12.0-SNAPSHOT
+        image: ldes/ldi-orchestrator:1.13.0-SNAPSHOT
         environment:
         - SPRING_CONFIG_NAME=application
         - SPRING_CONFIG_LOCATION=/config/
@@ -64,6 +64,20 @@ services:
         - ldes 
         profiles:
         - delay-started
+    ldio-workbench-kbo:
+        container_name: kbo_ldes-replication
+        image: ldes/ldi-orchestrator:1.13.0-SNAPSHOT
+        environment:
+        - SPRING_CONFIG_NAME=application
+        - SPRING_CONFIG_LOCATION=/config/
+        volumes:
+        - ./ldio-kbo.yml:/config/application.yml:ro
+        ports:
+        - ${LDIO_WORKBENCH_PORT:-8082}:8080
+        networks:
+        - ldes 
+        profiles:
+        - delay-started    
 networks:
     ldes:
         name: quick_start_network

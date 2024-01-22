@@ -10,5 +10,5 @@ orchestrator:
           outputs:
             - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpOut
               config:
-                endpoint: http://host.docker.internal:8080/water-quality-observations
+                endpoint: http://ldes-server:8080/water-quality-observations
                 content-type: application/n-quads

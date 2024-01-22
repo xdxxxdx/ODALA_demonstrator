@@ -1,0 +1,14 @@
+orchestrator:
+    pipelines:
+        - name: KBO
+          description: "HTTP polling, HTTP Console Out."
+          input:
+            name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient
+            config:
+              url: http://ldes-server:8080/kbo/pagination?pageNumber=1
+              source-format: "text/turtle"
+          outputs:
+            - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioConsoleOut
+              config:
+                rdf-writer:
+                  content-type: text/turtle
